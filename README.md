@@ -3,7 +3,7 @@
 Hola A todos para poder correr este servidor debes descargar este repo y la segunda parte de este
 
 # Requerimientos
--nodejs
+-nodejs  
 -php (puede ser como xampp o wampp o en binarios)
 
 # live try
