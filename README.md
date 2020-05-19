@@ -4,7 +4,7 @@ Hola A todos para poder correr este servidor debes descargar este repo y la segu
 
 # Fotos
 
-! [] (Live Try.PNG)
+![](Live Try.PNG)
 
 # Requerimientos
 -nodejs  
