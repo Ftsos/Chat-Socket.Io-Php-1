@@ -5,6 +5,9 @@ Hola A todos para poder correr este servidor debes descargar este repo y la segu
 # Fotos
 
 ![hola](Live%20Try.PNG)
+![hola](Archivo%20L.PNG)
+![hola](Live%20Try.PNG)
+![hola](Live%20Try.PNG)
 
 # Requerimientos
 -nodejs  
