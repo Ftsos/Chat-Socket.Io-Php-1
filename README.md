@@ -1,6 +1,10 @@
-# chat-socket.io Node Js Part
+# Chat-socket.io Node Js Part
 
 Hola A todos para poder correr este servidor debes descargar este repo y la segunda parte de este
+
+# Fotos
+
+! [] (Live Try.PNG)
 
 # Requerimientos
 -nodejs  
