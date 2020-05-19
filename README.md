@@ -1,6 +1,6 @@
 # Chat-socket.io Node Js Part
 
-Hola A todos para poder correr este servidor debes descargar este repo y la segunda parte de este
+Hola A todos para poder correr este servidor debes descargar este repo y la segunda parte de este que esta aqui https://github.com/Ftsos/Chat-Socket.Io-Php-2
 
 # Fotos
 
