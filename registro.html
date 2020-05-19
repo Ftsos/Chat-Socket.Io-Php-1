@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registro</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style>
+		
+		button {
+			border-radius: 3px;
+		}
+
+		input {
+			border-radius: 5px;
+		}
+
+		body {
+			background-color: #F6FFFD;
+		}
+	</style>
+</head>
+<body>
+<div style="text-align: center;">
+	<h1>Para Poder Chatear con tus amigos por favor Registrate</h1>
+	
+	<a href="/">Inicio</a><br><a href="/login">Login</a>
+	<br><br>
+</div>
+<div style="text-align: center;">
+	<form id="form" method="POST">
+		<input type="text" placeholder="mi usuario" name="usero" id="usr">
+		<br><br>
+		<input type="email" placeholder="ejemplo@ejemplo.com" name="email" id="ml">
+		<br><br>
+		<input type="password" placeholder="micontrasena" name="pass" id="pw">
+		<br><br>
+		<button type="submit">Enviar</button>
+	</form>
+</div>
+<div style="text-align: center;">
+	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Loco omnia variari adversarium conclusum voluptate quantaque fingitur blanditiis, albucius dixerit temeritate exhorrescere eorumque consequamur sequi commemorandis.</p>
+	<p id="ep"></p>
+</div>
+<script>
+	var form = document.querySelector('#form');
+
+	form.addEventListener('submit', (e) => {
+		e.preventDefault();
+		document.getElementById('ep').innerHTML = "Cargando<span id='letra1'>.</span><span id='letra2'>.</span><span id='letra3'>.</span>";
+		var vc = true;
+		setInterval(function() {
+if (vc) {
+
+var span1 = document.getElementById('letra1');
+var span2 = document.getElementById('letra2');
+var span3 = document.getElementById('letra3');
+
+
+setTimeout(function (){
+	
+	span1.style = "font-weight: 900;";
+	span2.style = "font-weight: normal;";
+	span3.style = "font-weight: normal;";
+}, 200);
+
+setTimeout(function (){
+	span2.style = "font-weight: 900;";
+	span1.style = "font-weight: normal;";
+	span3.style = "font-weight: normal;";
+}, 400);
+
+setTimeout(function (){
+	
+	span3.style = "font-weight: 900;";
+	span1.style = "font-weight: normal;";
+	span2.style = "font-weight: normal;";
+}, 600);
+}
+	
+		}, 800);
+
+
+		var fd = new FormData(e.currentTarget);
+
+async function ed(frd) {
+	//console.log(frd);
+await fetch('http://la direccion de tu live server con puerto y el archivo por ejemplo http://localhost:81/registro.php | pero tiene que ser tu archivo de el registro', {
+			method: 'POST',
+		
+			body: frd
+			}).then(respuestaRaw => respuestaRaw.text()) // Decodificar como texto
+                        .then(respuestaComoTexto => {
+                            // Aquí haz algo con la respuesta ;)
+                            document.getElementById('ep').innerHTML = respuestaComoTexto;
+
+
+                            	vc = false;
+                           
+								});
+
+
+
+
+			//.then(respuestaRaw => respuestaRaw.text()) // Decodificar como texto
+	             //           .then(respuestaComoTexto => {
+	                            // Aquí haz algo con la respuesta ;)
+	                 //           console.log(respuestaComoTexto);
+	                    //        console.log("cbdsjchbds");
+	               //         });
+
+
+	              document.getElementById('usr').value = "";
+
+                           	document.getElementById('ml').value = "";
+
+                           	document.getElementById('pw').value = "";
+}
+
+		ed(fd);
+
+
+	});
+
+
+</script>
+</body>
+</html>

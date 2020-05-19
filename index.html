@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style>
+		button {
+			border-radius: 3px;
+		}
+
+		input {
+			border-radius: 5px;
+		}
+
+		body {
+			background-color: #F6FFFD;
+		}
+	</style>
+</head>
+<body>
+<div style="text-align: center;"><h1>Chat con Socket.Io Node js, Php y Mysql</h1></div>
+
+<div style="text-align: center;">
+	<h3 id="nombre"></h3>
+</div>
+<div style="text-align: center;">
+<form id="form">
+	
+<input type="text" id="input">
+<br><br>
+<button type="submit">Enviar Texto</button>
+
+</form>
+</div>
+<br>
+<div id="parrafo" style="text-align: center;"></div>
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+<script type="text/javascript">
+var conexion = io();
+var form = document.getElementById('form');
+var input = document.getElementById('input');
+var nombre;
+form.addEventListener('submit', (event) => {
+
+event.preventDefault();
+
+console.log(input.value);
+
+var vtext = {
+
+			mensaje: input.value,
+			usuario: nombre
+
+			};
+
+conexion.emit("mensaje", vtext);
+
+input.value = "";
+
+});
+
+
+
+conexion.on("msg", prf)
+
+function prf(data) {
+	var parrafo = document.getElementById('parrafo');
+	parrafo.innerHTML += `<p><strong>${data.usuario}</strong><p>${data.mensaje}</p><br></p>`
+	console.log(data);
+}
+
+conexion.on("nombre", (data) => {
+	document.getElementById('nombre').innerHTML = data;
+	nombre = data;
+});
+
+</script>
+</body>
+</html>

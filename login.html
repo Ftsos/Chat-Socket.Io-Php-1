@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<style type="text/css">
+		.alineado {
+			text-align: center;
+		}
+
+		button {
+			border-radius: 3px;
+		}
+
+		input {
+			border-radius: 5px;
+		}
+
+		body {
+			background-color: #F6FFFD;
+		}
+	</style>
+
+</head>
+<body>
+		<div class="alineado">
+			<h1>Login</h1>
+
+		<br>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore causas captiosa audivi quibus sapientiam evertitur servare reprehensione liberae, timorem aptior, consecutionem quantaque de late diis ultimum expedire carere ignavi administrari.</p>
+		<a href="/">Inicio</a><br></b><a href="/registro">Registrate</a>
+	<br><br>
+	</div>
+
+		<div class="alineado">
+			<form id="form" method="POST" >
+				<input type="email" id="ml" name="eml" placeholder="ejemplo@ejemplo.com">
+				<br><br>
+				<input type="password" id="pw" name="pssw" placeholder="mi contrasena">
+				<br><br>
+				<button type="submit" >Enviar</button>
+			</form>
+			<p id="ep"></p>
+		</div>
+		<script src="socket.io/socket.io.js"></script>
+<script type="text/javascript">
+
+//var conexion = io();
+
+	var vc = true;
+
+function cargando() {
+	document.getElementById('ep').innerHTML = "Cargando<span id='letra1'>.</span><span id='letra2'>.</span><span id='letra3'>.</span>";
+	
+		setInterval(function() {
+if (vc) {
+
+var span1 = document.getElementById('letra1');
+var span2 = document.getElementById('letra2');
+var span3 = document.getElementById('letra3');
+
+
+setTimeout(function (){
+	
+	span1.style = "font-weight: 900;";
+	span2.style = "font-weight: normal;";
+	span3.style = "font-weight: normal;";
+}, 200);
+
+setTimeout(function (){
+	span2.style = "font-weight: 900;";
+	span1.style = "font-weight: normal;";
+	span3.style = "font-weight: normal;";
+}, 400);
+
+setTimeout(function (){
+	
+	span3.style = "font-weight: 900;";
+	span1.style = "font-weight: normal;";
+	span2.style = "font-weight: normal;";
+}, 600);
+}
+	
+		}, 800);
+}
+	
+	var frm = document.getElementById('form');
+
+	frm.addEventListener('submit', (e) => {
+		e.preventDefault();
+
+		var form = new FormData(e.currentTarget);
+		mandarphp(form)
+	});
+
+	async function mandarphp(frdt) {
+		
+	await fetch('http://la direccion de tu live server con puerto y el archivo por ejemplo http://localhost:81/login.php | pero tiene que ser tu archivo de login', {
+			method: 'POST',
+			body: frdt
+		}).then(respuestaRaw => respuestaRaw.text()).then((respuestaComoTexto) => {
+			vc = false;
+				var hiddenform = document.createElement('form');
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'rspphp');
+        hiddenInput.setAttribute('value', respuestaComoTexto);
+        hiddenform.setAttribute('method', 'POST');
+        hiddenform.setAttribute('action', '/post');
+
+        hiddenform.appendChild(hiddenInput);
+        var div = document.querySelector('.alineado');
+        div.appendChild(hiddenform)
+        hiddenform.submit();
+		});
+	}
+	//	document.getElementById('ep').innerHTML = "Cargando<span id='letra1'>.</span><span id='letra2'>.</span><span id='letra3'>.</span>";
+//		var vc = false;
+	//	setInterval(function() {
+//if (vc) {
+
+//var span1 = document.getElementById('letra1');
+//var span2 = document.getElementById('letra2');
+//var span3 = document.getElementById('letra3');
+
+
+//setTimeout(function (){
+	
+//	span1.style = "font-weight: 900;";
+//	span2.style = "font-weight: normal;";
+//	span3.style = "font-weight: normal;";
+//}, 200);
+
+//setTimeout(function (){
+//	span2.style = "font-weight: 900;";
+//	span1.style = "font-weight: normal;";	span3.style = "font-weight: normal;";
+//}, 400);
+
+//setTimeout(function (){
+	
+//	span3.style = "font-weight: 900;";
+//	span1.style = "font-weight: normal;";
+//	span2.style = "font-weight: normal;";
+//}, 600);
+//}
+	
+//		}, 800);
+
+
+//		var fd = new FormData(e.currentTarget);
+	//	ed();
+
+ //function ed() {
+	//console.log(frd);
+//await fetch('http://localhost:81/valida.php', {
+//			method: 'POST',
+		
+//			body: frd
+//			}).then(respuestaRaw => respuestaRaw.text()) // Decodificar como texto
+  //                      .then(respuestaComoTexto => {
+                            // Aquí haz algo con la respuesta ;)
+                           
+                            //conexion.emit("User", "auser");
+  //                          var frmd = new FormData();
+    //                        frmd.append('todo', 'ftsos');
+
+      //                      fetch('http://localhostpost', {
+        //                    	method: 'POST', 
+          //                  	body: frmd
+            //                })
+//                            	vc = false;
+                           
+	//							});
+
+
+
+
+			//.then(respuestaRaw => respuestaRaw.text()) // Decodificar como texto
+	             //           .then(respuestaComoTexto => {
+	                            // Aquí haz algo con la respuesta ;)
+	                 //           console.log(respuestaComoTexto);
+	                    //        console.log("cbdsjchbds");
+	               //         });
+
+
+	              
+
+  //                         	document.getElementById('ml').value = "";
+
+    //                       	document.getElementById('pw').value = "";
+//}
+
+		
+
+
+//	});
+
+//conexion.on("rpserver", pr);
+
+
+//function pr(data){
+//	console.log(data);
+//};
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
