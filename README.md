@@ -53,7 +53,7 @@ Ahora Ya Solo Nos queda inicializar nuestro servidor de node navegando en la ter
 
 
 
-## LO HICSTE
+## LO HICISTE
 
 ya puedes chatear 
 
